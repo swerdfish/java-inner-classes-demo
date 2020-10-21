@@ -1,10 +1,12 @@
-package demo;
+package demo.graph;
 
 import java.util.ArrayDeque;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Deque;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Set;
@@ -23,6 +25,14 @@ public class Graph {
 		for (int ni : nodeIds) {
 			nodes.add(new Node(ni));
 		}
+	}
+	
+	public Graph(List<Integer> nodeIds) {
+		this(new HashSet<Integer>(nodeIds));
+	}
+	
+	public Graph(int... nodeIds) {
+		this(Arrays.stream(nodeIds).boxed().collect(Collectors.toSet()));
 	}
 	
 	public Graph(Map<Integer, Set<Integer>> nodeIdsAndChildrenIds) {
@@ -113,6 +123,35 @@ public class Graph {
 		Node n = new Node(id);
 		nodes.add(n);
 		return n;
+	}
+	
+	public Set<Node> addNodes(int... idsToAdd) {
+		nodes.addAll(
+				Arrays.stream(idsToAdd)
+				.mapToObj(id -> new Node(id))
+				.collect(Collectors.toSet())
+		);
+		return nodes;
+	}
+	
+	public Set<Node> addNodes(List<Integer> idsToAdd) {
+		nodes.addAll(
+				idsToAdd.stream()
+				.mapToInt(Integer::intValue)
+				.mapToObj(id -> new Node(id))
+				.collect(Collectors.toSet())
+		);
+		return nodes;
+	}
+	
+	public Set<Node> addNodes(Set<Integer> idsToAdd) {
+		nodes.addAll(
+				idsToAdd.stream()
+				.mapToInt(Integer::intValue)
+				.mapToObj(id -> new Node(id))
+				.collect(Collectors.toSet())
+		);
+		return nodes;
 	}
 	
 	public boolean containsNode(int id) {

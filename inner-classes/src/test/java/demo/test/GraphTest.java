@@ -1,78 +1,64 @@
 package demo.test;
 
-import java.util.Arrays;
-import java.util.HashSet;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Assertions;
 
-import demo.Graph;
+import demo.graph.Graph;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 
 class GraphTest {
-
-	@Test
-	void testDFS_noLoops() {
-		Graph g = new Graph(new HashSet<Integer>(Arrays.asList(0, 1, 2, 3, 4, 5)));
-		g.connect(0, 1);
-		g.connect(1, 2);
-		g.connect(1, 3);
-		g.connect(3, 4);
+	
+	static Graph g1;
+	static Graph g2;
+	
+	@BeforeAll
+	static void setup() {
+		g1 = new Graph(0, 1, 2, 3, 4, 5);
+		g1.connect(0, 1);
+		g1.connect(1, 2);
+		g1.connect(1, 3);
+		g1.connect(3, 4);
 		/*
 		 * 0--1--2
 		 *     \
 		 *      3--4  5
 		 */
-		Assertions.assertTrue(g.hasPathDFS(0, 4));
-		Assertions.assertFalse(g.hasPathDFS(0, 5));
+		g2 = new Graph(0, 1, 2, 3, 4, 5);
+		g2.connect(0, 1);
+		g2.connect(1, 2);
+		g2.connect(1, 3);
+		g2.connect(3, 4);
+		g2.connect(4, 2);
+		/*
+		 * 0--1--2
+		 *     \  \
+		 *      3--4  5
+		 */
+	}
+
+	@Test
+	void testDFS_noLoops() {
+		Assertions.assertTrue(g1.hasPathDFS(0, 4));
+		Assertions.assertFalse(g1.hasPathDFS(0, 5));
 	}
 
 	@Test
 	void testDFS_loops() {
-		Graph g = new Graph(new HashSet<Integer>(Arrays.asList(0, 1, 2, 3, 4, 5)));
-		g.connect(0, 1);
-		g.connect(1, 2);
-		g.connect(1, 3);
-		g.connect(3, 4);
-		g.connect(4, 2);
-		/*
-		 * 0--1--2
-		 *     \  \
-		 *      3--4  5
-		 */
-		Assertions.assertTrue(g.hasPathDFS(0, 4));
-		Assertions.assertFalse(g.hasPathDFS(0, 5));
+		Assertions.assertTrue(g2.hasPathDFS(0, 4));
+		Assertions.assertFalse(g2.hasPathDFS(0, 5));
 	}
 
 	@Test
 	void testBFS_noLoops() {
-		Graph g = new Graph(new HashSet<Integer>(Arrays.asList(0, 1, 2, 3, 4, 5)));
-		g.connect(0, 1);
-		g.connect(1, 2);
-		g.connect(1, 3);
-		g.connect(3, 4);
-		/*
-		 * 0--1--2
-		 *     \
-		 *      3--4  5
-		 */
-		Assertions.assertTrue(g.hasPathBFS(0, 4));
-		Assertions.assertFalse(g.hasPathBFS(0, 5));
+		Assertions.assertTrue(g1.hasPathBFS(0, 4));
+		Assertions.assertFalse(g1.hasPathBFS(0, 5));
 	}
 
 	@Test
 	void testBFS_loops() {
-		Graph g = new Graph(new HashSet<Integer>(Arrays.asList(0, 1, 2, 3, 4, 5)));
-		g.connect(0, 1);
-		g.connect(1, 2);
-		g.connect(1, 3);
-		g.connect(3, 4);
-		g.connect(4, 2);
-		/*
-		 * 0--1--2
-		 *     \  \
-		 *      3--4  5
-		 */
-		Assertions.assertTrue(g.hasPathBFS(0, 4));
-		Assertions.assertFalse(g.hasPathBFS(0, 5));
+		Assertions.assertTrue(g2.hasPathBFS(0, 4));
+		Assertions.assertFalse(g2.hasPathBFS(0, 5));
 	}
 
 }

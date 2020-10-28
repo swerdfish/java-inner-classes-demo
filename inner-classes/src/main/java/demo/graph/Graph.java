@@ -119,6 +119,38 @@ public class Graph {
 		return false;
 	}
 	
+	public int lengthPathBFS(int id1, int id2) {
+		// create immutable inner class BFO (breadth-first object)
+		class BFO {
+			private int id;
+			private int length;
+			BFO(int id) {
+				this.id = id;
+				this.length = 0;
+			}
+			BFO(int id, int length) {
+				this.id = id;
+				this.length = length;
+			}
+//			int getId() { return id; }
+//			int getLength() { return length; }
+		}
+		Set<Integer> visited = new HashSet<>();
+		Deque<BFO> queue = new ArrayDeque<>();
+		queue.add(new BFO(id1));
+		while (queue.size() > 0) {
+			BFO current = queue.remove();
+			if (current.id == id2) return current.length;
+			if (!visited.contains(current.id)) {
+				visited.add(current.id);
+				for (Node childNode : getNode(current.id).directChildren) {
+					queue.add(new BFO(childNode.id, current.length+1));
+				}
+			}
+		}
+		return -1;
+	}
+	
 	public Node addNode(int id) {
 		Node n = new Node(id);
 		nodes.add(n);

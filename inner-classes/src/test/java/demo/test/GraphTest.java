@@ -38,27 +38,73 @@ class GraphTest {
 	}
 
 	@Test
-	void testDFS_noLoops() {
+	void testDFS_noLoops_0to4() {
 		Assertions.assertTrue(g1.hasPathDFS(0, 4));
+	}
+	
+	@Test
+	void testDFS_noLoops_0to5() {
 		Assertions.assertFalse(g1.hasPathDFS(0, 5));
 	}
 
 	@Test
-	void testDFS_loops() {
+	void testDFS_loops_0to4() {
 		Assertions.assertTrue(g2.hasPathDFS(0, 4));
+	}
+	
+	@Test
+	void testDFS_loops_0to5() {
 		Assertions.assertFalse(g2.hasPathDFS(0, 5));
 	}
 
 	@Test
-	void testBFS_noLoops() {
+	void testBFS_noLoops_0to4() {
 		Assertions.assertTrue(g1.hasPathBFS(0, 4));
+	}
+	
+	@Test
+	void testBFS_noLoops_0to5() {
 		Assertions.assertFalse(g1.hasPathBFS(0, 5));
 	}
 
 	@Test
-	void testBFS_loops() {
+	void testBFS_loops_0to4() {
 		Assertions.assertTrue(g2.hasPathBFS(0, 4));
+	}
+	
+	@Test
+	void testBFS_loops_0to5() {
 		Assertions.assertFalse(g2.hasPathBFS(0, 5));
+	}
+	
+	@Test
+	void testBFSlength_noLoops_0to4() {
+		Assertions.assertEquals(3, g1.lengthPathBFS(0, 4));
+	}
+	
+	@Test
+	void testBFSlength_noLoops_2to4() {
+		Assertions.assertEquals(3, g1.lengthPathBFS(2, 4));
+	}
+	
+	@Test
+	void testBFSlength_noLoops_0to5() {
+		Assertions.assertEquals(-1, g1.lengthPathBFS(0, 5));
+	}
+	
+	@Test
+	void testBFSlength_loops_0to4() {
+		Assertions.assertEquals(3, g2.lengthPathBFS(0, 4));
+	}
+	
+	@Test
+	void testBFSlength_loops_2to4() {
+		Assertions.assertEquals(1, g2.lengthPathBFS(2, 4));
+	}
+	
+	@Test
+	void testBFSlength_loops_0to5() {
+		Assertions.assertEquals(-1, g2.lengthPathBFS(0, 5));
 	}
 
 }

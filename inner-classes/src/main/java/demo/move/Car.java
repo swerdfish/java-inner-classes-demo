@@ -27,5 +27,10 @@ public class Car implements Movable {
 		this.y += delta_y;
 		System.out.println("I have moved to the new position: ("+x+", "+y+")");
 	}
+	
+	@Override
+	public void shake() {
+		System.out.println("Please don't shake me. I'm a car.");
+	}
 
 }

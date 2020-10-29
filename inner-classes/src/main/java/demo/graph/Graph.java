@@ -122,8 +122,8 @@ public class Graph {
 	public int lengthPathBFS(int id1, int id2) {
 		// create immutable inner class BFO (breadth-first object)
 		class BFO {
-			private int id;
-			private int length;
+			int id;
+			int length;
 			BFO(int id) {
 				this.id = id;
 				this.length = 0;
@@ -132,8 +132,6 @@ public class Graph {
 				this.id = id;
 				this.length = length;
 			}
-//			int getId() { return id; }
-//			int getLength() { return length; }
 		}
 		Set<Integer> visited = new HashSet<>();
 		Deque<BFO> queue = new ArrayDeque<>();

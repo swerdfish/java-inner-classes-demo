@@ -6,5 +6,10 @@ public class MovableThing implements Movable {
 	public void move() {
 		System.out.println("I have been moved");
 	}
+	
+	@Override
+	public void shake() {
+		System.out.println("Shake it up!");
+	}
 
 }

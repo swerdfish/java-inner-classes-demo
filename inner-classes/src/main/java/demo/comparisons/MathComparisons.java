@@ -7,10 +7,10 @@ public class MathComparisons {
 		
 		class Comparisons {
 			
-			public int dm;
-			public int quotient;
-			public int remainder;
-			public int product;
+			int dm;
+			int quotient;
+			int remainder;
+			int product;
 			
 			public Comparisons(int dm) {
 				this.dm = dm;

@@ -6,9 +6,9 @@ import java.util.List;
 
 public abstract class Pizza {
 	
-	private List<Topping> toppings;
-	private String[] construction;
-	private double heightInches;
+	protected List<Topping> toppings;
+	protected String[] construction;
+	protected double heightInches;
 	
 	public Pizza() {
 		toppings = new ArrayList<>();
@@ -66,26 +66,26 @@ public abstract class Pizza {
 		
 		public DeepDish() {
 			super();
-			super.construction = new String[] {"crust", "cheese", "toppings", "sauce"};
-			super.heightInches = 2;
+			construction = new String[] {"crust", "cheese", "toppings", "sauce"};
+			heightInches = 2;
 		}
 		
 		public DeepDish(String[] toppingStringArray) {
 			super(toppingStringArray);
-			super.construction = new String[] {"crust", "cheese", "toppings", "sauce"};
-			super.heightInches = 2;
+			construction = new String[] {"crust", "cheese", "toppings", "sauce"};
+			heightInches = 2;
 		}
 		
 		public DeepDish(String toppingsString) {
 			super(toppingsString);
-			super.construction = new String[] {"crust", "cheese", "toppings", "sauce"};
-			super.heightInches = 2;
+			construction = new String[] {"crust", "cheese", "toppings", "sauce"};
+			heightInches = 2;
 		}
 		
 		public DeepDish(Collection<Object> toppingCollection) {
 			super(toppingCollection);
-			super.construction = new String[] {"crust", "cheese", "toppings", "sauce"};
-			super.heightInches = 2;
+			construction = new String[] {"crust", "cheese", "toppings", "sauce"};
+			heightInches = 2;
 		}
 		
 		public DeepDish(Topping[] toppings) {
@@ -94,7 +94,7 @@ public abstract class Pizza {
 
 		@Override
 		public String toString() {
-			return "Deep Dish Pizza [toppings=" + super.toppings + "]";
+			return "Deep Dish Pizza [toppings=" + toppings + "]";
 		}
 		
 	}
@@ -103,36 +103,36 @@ public abstract class Pizza {
 		
 		public Classic() {
 			super();
-			super.construction = new String[] {"crust", "sauce", "cheese", "toppings"};
-			super.heightInches = 0.5;
+			construction = new String[] {"crust", "sauce", "cheese", "toppings"};
+			heightInches = 0.5;
 		}
 		
 		public Classic(String[] toppingStringArray) {
 			super(toppingStringArray);
-			super.construction = new String[] {"crust", "sauce", "cheese", "toppings"};
-			super.heightInches = 0.5;
+			construction = new String[] {"crust", "sauce", "cheese", "toppings"};
+			heightInches = 0.5;
 		}
 		
 		public Classic(String toppingsString) {
 			super(toppingsString);
-			super.construction = new String[] {"crust", "sauce", "cheese", "toppings"};
-			super.heightInches = 0.5;
+			construction = new String[] {"crust", "sauce", "cheese", "toppings"};
+			heightInches = 0.5;
 		}
 		
 		public Classic(Collection<Object> toppingCollection) {
 			super(toppingCollection);
-			super.construction = new String[] {"crust", "sauce", "cheese", "toppings"};
-			super.heightInches = 0.5;
+			construction = new String[] {"crust", "sauce", "cheese", "toppings"};
+			heightInches = 0.5;
 		}
 		
 		public Classic(Topping[] toppings) {
 			super(toppings);
-			super.heightInches = 0.5;
+			heightInches = 0.5;
 		}
 
 		@Override
 		public String toString() {
-			return "Classic Pizza [toppings=" + super.toppings + "]";
+			return "Classic Pizza [toppings=" + toppings + "]";
 		}
 		
 	}
@@ -141,36 +141,36 @@ public abstract class Pizza {
 		
 		public ThinCrust() {
 			super();
-			super.construction = new String[] {"crust", "sauce", "cheese", "toppings"};
-			super.heightInches = 0.25;
+			construction = new String[] {"crust", "sauce", "cheese", "toppings"};
+			heightInches = 0.25;
 		}
 		
 		public ThinCrust(String[] toppingStringArray) {
 			super(toppingStringArray);
-			super.construction = new String[] {"crust", "sauce", "cheese", "toppings"};
-			super.heightInches = 0.25;
+			construction = new String[] {"crust", "sauce", "cheese", "toppings"};
+			heightInches = 0.25;
 		}
 		
 		public ThinCrust(String toppingsString) {
 			super(toppingsString);
-			super.construction = new String[] {"crust", "sauce", "cheese", "toppings"};
-			super.heightInches = 0.25;
+			construction = new String[] {"crust", "sauce", "cheese", "toppings"};
+			heightInches = 0.25;
 		}
 		
 		public ThinCrust(Collection<Object> toppingCollection) {
 			super(toppingCollection);
-			super.construction = new String[] {"crust", "sauce", "cheese", "toppings"};
-			super.heightInches = 0.25;
+			construction = new String[] {"crust", "sauce", "cheese", "toppings"};
+			heightInches = 0.25;
 		}
 		
 		public ThinCrust(Topping[] toppings) {
 			super(toppings);
-			super.heightInches = 0.25;
+			heightInches = 0.25;
 		}
 
 		@Override
 		public String toString() {
-			return "Thin Crust Pizza [toppings=" + super.toppings + "]";
+			return "Thin Crust Pizza [toppings=" + toppings + "]";
 		}
 		
 	}

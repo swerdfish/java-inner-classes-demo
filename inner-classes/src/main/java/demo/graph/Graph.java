@@ -155,6 +155,11 @@ public class Graph {
 		return n;
 	}
 	
+	public Node addNode(Node n) {
+		nodes.add(n);
+		return n;
+	}
+	
 	public Set<Node> addNodes(int... idsToAdd) {
 		nodes.addAll(
 				Arrays.stream(idsToAdd)
@@ -245,6 +250,7 @@ public class Graph {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
+		System.out.println("Graph");
 		for (Node n : nodes) {
 			sb.append(n.toString()+": "+n.getDirectChildren()+'\n');
 		}
